@@ -140,7 +140,7 @@ export default function Shopping() {
 
             setProducts(productsEdit);
             localStorage.setItem('cart', JSON.stringify(productsEdit));
-            sendEventToKafka('removeProduct', { productId, quantity: productsEdit[existingItemIndex]?.quantity || 0 });
+            sendEventToKafka('removeProduct', { productId: productsEdit[existingItemIndex]?.productId, quantity: productsEdit[existingItemIndex]?.quantity || 0 });
             window.location.reload();
         }
     };
